@@ -1,0 +1,36 @@
+.rootgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  grid-template-areas: 
+    "header ....."
+    "body   aside"
+    "footer .....";
+  
+  > * {
+    background: yellow;
+    min-height: 30px;
+  }
+
+  > header {
+    background: rgb(17, 131, 17);;
+    color: white;
+    grid-area: header;
+  }
+  
+  > main {
+    grid-area: body;
+  }
+  
+  > footer {
+    background: steelblue;
+    border-bottom: 1px solid lightblue;
+    color: white;
+    grid-area: footer;
+  }
+  
+  &.has-sidebar > aside {
+    background: lightblue;
+    grid-area: aside;
+  }
+}
