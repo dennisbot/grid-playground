@@ -1,0 +1,57 @@
+@use './common/reset';
+@use './common/variables';
+@use './../../node_modules/sass-mq/mq';
+
+.grid-container {
+  max-width: 1110px;
+  margin: 0 auto;
+
+  @include mq.mq($from: tablet) {
+    max-width: 800px;
+  }
+
+  @include mq.mq($from: wide) {
+    max-width: 1110px;
+  }
+}
+
+.card-set {
+  &__cards {
+    display: grid;
+    gap: 20px;
+    
+  
+    @include mq.mq($from: tablet) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  
+    @include mq.mq($from: wide) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .card {
+      background: #ffecea;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+
+      @include mq.mq($until: tablet) {
+        max-width: 350px;
+        margin: 0 auto;
+      }
+      
+      @include mq.mq($from: tablet) {
+        grid-column: span 2;
+        // &:nth-last-child(-n + 3) {
+        //   background-color: lightblue;
+        // }
+
+        
+        // &:nth-last-child(2) {
+        //   background-color: steelblue;
+        //   grid-column: 2 / span 2;
+        // }
+      }
+    }
+  }
+}
