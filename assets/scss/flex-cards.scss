@@ -5,9 +5,10 @@
 .grid-container {
   margin: 0 auto;
   overflow: hidden;
+  max-width: 350px;
 
   @include mq.mq($from: tablet) {
-    max-width: 800px;
+    max-width: 700px;
   }
 
   @include mq.mq($from: wide) {
@@ -28,24 +29,13 @@
     .card {
       background: #ffecea;
       border-radius: 15px;
+      margin: 0 10px 20px 10px;
       padding: 30px;
       text-align: center;
-
-      @include mq.mq($until: tablet) {
-        max-width: 350px;
-        margin: 20px auto;
-
-        &:first-child {
-          margin-top: 0;
-        }
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
+      width: calc(100% - 20px);
 
       @include mq.mq($from: tablet) {
         width: calc((100% / 2) - 20px);
-        margin: 0 10px 20px 10px;
       }
       
       @include mq.mq($from: wide) {
