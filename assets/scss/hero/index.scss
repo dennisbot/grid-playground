@@ -1,10 +1,12 @@
 @use '../common/reset';
 @use './default';
 @use './variant/hero-grid';
+@use './variant/hero-fluid';
 
 .hero {
   $component: &;
 
   @include default.mixin;
   @include hero-grid.mixin($component);
+  @include hero-fluid.mixin($component);
 }

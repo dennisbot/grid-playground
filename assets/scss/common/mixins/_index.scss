@@ -1,9 +1,7 @@
-@use "./variables" as vars;
+@use "../variables" as vars;
 
-@forward '../../../node_modules/sass-mq/mq' with (
-  $breakpoints: vars.$breakpoints,
-  $show-breakpoints: vars.$show-breakpoints
-);
+@forward './container';
+@forward './mq-sass';
 
 @mixin use-grid($column-gap: vars.$grid-gutter-width, $columns: 12) {
   column-gap: $column-gap;

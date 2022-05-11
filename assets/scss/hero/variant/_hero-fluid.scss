@@ -3,10 +3,7 @@
 @mixin mixin($component) {
   &--fluid {
     #{$component}__container {
-      @include mixins.mq($from: mobile-lg, $until: tablet) {
-        padding-left: 42.5px;
-        padding-right: 42.5px;
-      }
+      max-width: 1140px;
     }
   }
 }

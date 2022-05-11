@@ -29,7 +29,7 @@
   }
   
   &__text {
-    & > h1 {
+    > h1 {
       color: colors.$color-cadmium-orange;
       font-size: 26px;
       font-weight: 400;
@@ -47,8 +47,8 @@
       }
     }
   
-    & > p,
-    & > ul {
+    > p,
+    > ul {
       color: colors.$color-black;
       font-size: 18px;
       font-weight: 400;
@@ -60,17 +60,19 @@
       }
     }
   
-    & > *:last-child {
+    > *:last-child {
       margin-bottom: 0;
     }
   }
 
   &__contact {
     @include mixins.when-not-inside(".hero--grid") {
-      width: fn.width-in-columns(3, 7); 
+      width: fn.width-in-columns(3, 7);
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    & > p {
+    > p {
       color: colors.$color-black;
       font-size: 18px;
       font-weight: 500;
@@ -78,14 +80,14 @@
       margin: 0;
     }
   
-    & a {
+    a {
       color: colors.$color-black;
       font-size: 30px;
       font-weight: 700;
       line-height: 39px;
     }
   
-    & span {
+    span {
       color: colors.$color-mid-gray;
       font-size: 30px;
       font-weight: 300;
@@ -93,7 +95,6 @@
   
       @include mixins.mq($from: desktop-sm) {
         margin-left: 5px;
-  
       }
   
       &::before {

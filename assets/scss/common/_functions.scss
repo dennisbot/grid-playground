@@ -1,9 +1,38 @@
+@use 'sass:map';
 @use './variables' as vars;
 
+/**
+* Convert px to rem
+*/
+@function toRem($pixels, $context: vars.$font-size-base) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return calc($pixels / $context) * 1rem;
+}
+
+/**
+* Returns width in columns, you can optionally define the total number of columns
+* of the container, it's 12 by default.
+*/
 @function width-in-columns($number, $parent-columns: 12, $extra-gutters: 0) {
   @return calc(
     (100% - #{($parent-columns - 1) * vars.$grid-gutter-width}) * #{calc(
         $number / $parent-columns
       )} + #{($number - 1 + $extra-gutters) * vars.$grid-gutter-width}
   );
+}
+
+/**
+* get the max-width value in px for any given breakpoint
+* (for non-fluid containers), $breakpoint must exist within
+* $container-max-widths array.
+*/
+@function get-maxwidth-for($breakpoint) {
+  @return map.get(vars.$container-max-widths, $breakpoint);
 }
