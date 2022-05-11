@@ -1,0 +1,40 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/assets/' !default;
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Number} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+    mobile: 320px,
+    mobile-lg: 375px,
+    tablet: 768px,
+    desktop-sm: 992px,
+    tablet-landscape: 1024px,
+    desktop: 1200px,
+    desktop-lg: 1600px,
+    desktop-xlg: 1920px,
+    table-scroll: 610px,
+) !default;
+// If you want to display the currently active breakpoint in the top
+// right corner of your site during development, add the breakpoints
+// to this list, ordered by width. For examples: (mobile, tablet, desktop).
+$show-breakpoints: (mobile, tablet, desktop, desktop-lg) !default;
+
+// Grid columns
+//
+// Specify the width of the gutters.
+$grid-gutter-width: 30px !default;
+
+$container-max-widths : (
+  tablet: 690px + $grid-gutter-width,
+  desktop: 1110px + $grid-gutter-width
+) !default;
+
+@forward "./colors";

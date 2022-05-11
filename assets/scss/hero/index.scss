@@ -1,0 +1,10 @@
+@use '../common/reset';
+@use './default';
+@use './variant/hero-grid';
+
+.hero {
+  $component: &;
+
+  @include default.mixin;
+  @include hero-grid.mixin($component);
+}

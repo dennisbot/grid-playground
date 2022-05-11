@@ -1,16 +1,16 @@
 @use './common/reset';
 @use './common/variables';
-@use './../../node_modules/sass-mq/mq';
+@use './common/mixins';
 
 .grid-container {
   max-width: 1110px;
   margin: 0 auto;
 
-  @include mq.mq($from: tablet) {
+  @include mixins.mq($from: tablet) {
     max-width: 800px;
   }
 
-  @include mq.mq($from: wide) {
+  @include mixins.mq($from: wide) {
     max-width: 1110px;
   }
 }
@@ -21,11 +21,11 @@
     gap: 20px;
     
   
-    @include mq.mq($from: tablet) {
+    @include mixins.mq($from: tablet) {
       grid-template-columns: repeat(4, 1fr);
     }
   
-    @include mq.mq($from: wide) {
+    @include mixins.mq($from: wide) {
       grid-template-columns: repeat(6, 1fr);
     }
 
@@ -35,12 +35,12 @@
       padding: 30px;
       text-align: center;
 
-      @include mq.mq($until: tablet) {
+      @include mixins.mq($until: tablet) {
         max-width: 350px;
         margin: 0 auto;
       }
       
-      @include mq.mq($from: tablet) {
+      @include mixins.mq($from: tablet) {
         grid-column: span 2;
         // &:nth-last-child(-n + 3) {
         //   background-color: lightblue;

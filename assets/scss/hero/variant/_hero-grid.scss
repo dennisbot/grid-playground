@@ -1,0 +1,43 @@
+@use '../../common/mixins';
+
+@mixin mixin($component) {
+  &--grid {
+    #{$component}__container {
+      @include mixins.mq($from: mobile-lg, $until: tablet) {
+        padding-left: 42.5px;
+        padding-right: 42.5px;
+      }
+  
+      @include mixins.mq($from: tablet) {
+        @include mixins.use-grid;
+        grid-template-areas:
+        "A A A A A A A A A A A A";
+      }
+  
+      @include mixins.mq($from: desktop-sm) {
+        grid-template-areas:
+      "A A A A A A A . . . . .";
+      }
+    }
+  
+    #{$component}__content {
+      grid-area: A;
+      width: auto;
+  
+      @include mixins.mq($from: desktop-sm) {
+        @include mixins.use-grid($column-gap: 30px, $columns: 7);
+        grid-template-areas: 
+          "AA AA AA AA AA AA AA"
+          "BB BB BB .. .. .. ..";
+      }
+    }
+  
+    #{$component}__text {
+      grid-area: AA;
+    }
+  
+    #{$component}__contact {
+      grid-area: BB;
+    }
+  }
+}

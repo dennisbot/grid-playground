@@ -1,24 +1,24 @@
 @use './common/reset';
 @use './common/variables';
-@use './../../node_modules/sass-mq/mq';
+@use './common/mixins';
 
 .grid-container {
   margin: 0 auto;
   overflow: hidden;
   max-width: 350px;
 
-  @include mq.mq($from: tablet) {
+  @include mixins.mq($from: tablet) {
     max-width: 700px;
   }
 
-  @include mq.mq($from: wide) {
+  @include mixins.mq($from: wide) {
     max-width: 1110px;
   }
 }
 
 .card-set {
   &__cards {
-    @include mq.mq($from: tablet) {
+    @include mixins.mq($from: tablet) {
       width: calc(100% + 20px);
       margin: 0 -10px;
       display: flex;
@@ -34,11 +34,11 @@
       text-align: center;
       width: calc(100% - 20px);
 
-      @include mq.mq($from: tablet) {
+      @include mixins.mq($from: tablet) {
         width: calc((100% / 2) - 20px);
       }
       
-      @include mq.mq($from: wide) {
+      @include mixins.mq($from: wide) {
         width: calc((100% / 3) - 20px);
       }
 

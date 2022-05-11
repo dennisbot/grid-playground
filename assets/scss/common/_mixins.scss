@@ -1,0 +1,34 @@
+@use "./variables" as vars;
+
+@forward '../../../node_modules/sass-mq/mq' with (
+  $breakpoints: vars.$breakpoints,
+  $show-breakpoints: vars.$show-breakpoints
+);
+
+@mixin use-grid($column-gap: vars.$grid-gutter-width, $columns: 12) {
+  column-gap: $column-gap;
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+
+  > * {
+    grid-column: 1 / -1;
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Kitty Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+/// Make a context based selector a little more friendly
+/// @author Kitty Giraudel
+/// @param {String} $context
+@mixin when-not-inside($context) {
+  // TODO: change section with a tag that comes from args
+  section:not(#{$context}) & {
+    @content;
+  }
+}

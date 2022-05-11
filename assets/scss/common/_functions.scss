@@ -1,0 +1,9 @@
+@use './variables' as vars;
+
+@function width-in-columns($number, $parent-columns: 12, $extra-gutters: 0) {
+  @return calc(
+    (100% - #{($parent-columns - 1) * vars.$grid-gutter-width}) * #{calc(
+        $number / $parent-columns
+      )} + #{($number - 1 + $extra-gutters) * vars.$grid-gutter-width}
+  );
+}

@@ -1,0 +1,178 @@
+@use 'sass:map';
+@use "../common/functions" as fn;
+@use "../common/variables" as vars;
+@use "../common/fonts";
+@use '../common/mixins';
+@use "../common/colors"; 
+@use "../common/helpers"; 
+
+@mixin mixin {
+  background-color: colors.$color-tutu;
+  font-family: fonts.$open-sans;
+  padding: 30px 0;
+  position: relative;
+  text-align: center;
+
+  @include mixins.mq($from: desktop-sm) {
+    text-align: left;
+  }
+  
+  &__container {
+    @extend %container;
+    position: relative;
+  }
+  
+  &__content {
+    @include mixins.mq($from: desktop-sm) {
+      width: fn.width-in-columns(7);
+    }
+  }
+  
+  &__text {
+    & > h1 {
+      color: colors.$color-cadmium-orange;
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 34px;
+      margin-bottom: 15px;
+  
+      @include mixins.mq($from: desktop-sm) {
+        font-size: 30px;
+        line-height: 42px;
+      }
+  
+      @include mixins.mq($from: tablet-landscape) {
+        font-size: 36px;
+        line-height: 50px;
+      }
+    }
+  
+    & > p,
+    & > ul {
+      color: colors.$color-black;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 28px;
+  
+      @include mixins.mq($from: tablet-landscape) {
+        font-size: 20px;
+        line-height: 30px;
+      }
+    }
+  
+    & > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__contact {
+    @include mixins.when-not-inside(".hero--grid") {
+      width: fn.width-in-columns(3, 7); 
+    }
+
+    & > p {
+      color: colors.$color-black;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 28px;
+      margin: 0;
+    }
+  
+    & a {
+      color: colors.$color-black;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 39px;
+    }
+  
+    & span {
+      color: colors.$color-mid-gray;
+      font-size: 30px;
+      font-weight: 300;
+      line-height: 39px;
+  
+      @include mixins.mq($from: desktop-sm) {
+        margin-left: 5px;
+  
+      }
+  
+      &::before {
+        @include mixins.mq($from: desktop-sm) {
+          content: "|";
+          display: inline-block;
+          height: 0.8em;
+          line-height: 0.8em;
+          margin-right: 10px;
+          overflow: hidden;
+        }
+      }
+    }
+  
+    .tel {
+      display: block;
+  
+      @include mixins.mq($from: desktop-sm) {
+        display: inline-block;
+      }
+    }
+  }
+  
+  &__form {
+    margin: 15px 0 30px;
+  
+    @include mixins.mq($from: desktop) {
+      margin: 30px 0;
+    }
+  
+    form {
+      @include mixins.mq($from: desktop-sm) {
+        align-items: flex-end;
+        display: flex;
+      }
+    }
+  }
+  
+  &__background-container {
+    height: 100%;
+    width: 100%;
+  
+    @include mixins.mq($from: desktop-sm) {
+      bottom: 0;
+      left: 0;
+      margin: 0 auto;
+      max-width: map.get(vars.$container-max-widths, desktop);
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+  
+  &__background {
+    height: 100%;
+    left: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: {
+      image: none;
+    }
+
+    @include mixins.mq($from: desktop-sm) {
+      background: {
+        image: url('https://res.cloudinary.com/tranzact/image/upload/v1641342258/umb9test/happy-couple.jpg');
+        position: 113% center;
+        repeat: no-repeat;
+        size: 445px;
+      }
+    }
+  
+    @include mixins.mq($from: tablet-landscape) {
+      background-position: 105% center;
+    }
+      
+    @include mixins.mq($from: desktop) {
+      background-position: right center;
+    }
+  }  
+}
